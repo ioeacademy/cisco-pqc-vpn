@@ -112,8 +112,8 @@
         <div class="card-title">Post-Quantum Pre-Shared Keys (PPK)</div>
         <div class="card-desc">Add a quantum-resistant pre-shared key layer to IKEv2. A high-entropy PPK is mixed into the session key derivation, protecting traffic even if Diffie-Hellman is broken by a quantum computer.</div>
         <ul class="card-features">
-          <li>Deploy-ready on current Cisco IOS XE routers</li>
-          <li>No firmware changes needed — uses existing IKEv2 keyring</li>
+          <li>Supported on Cisco IOS XE 17.x and later</li>
+          <li>Uses existing IKEv2 keyring infrastructure</li>
           <li>Backward-compatible with classical VPN peers</li>
           <li>Fault injection and troubleshooting exercises</li>
         </ul>
@@ -146,7 +146,7 @@
         <ul class="card-features">
           <li>NIST FIPS 203 standardized algorithm (ML-KEM-768)</li>
           <li>Hybrid ECDH + ML-KEM via IKE_INTERMEDIATE (RFC 9370)</li>
-          <li>Stronger quantum resistance than PPK alone</li>
+          <li>Asymmetric post-quantum KEM — complements PPK approach</li>
           <li>Fault injection and troubleshooting exercises</li>
         </ul>
         <span class="card-cta">Start Tutorial</span>
