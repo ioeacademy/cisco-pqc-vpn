@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quantum-Safe VPN Tutorials — IOE Academy</title>
+<title>Quantum-Safe VPN Tutorials — Cisco Networking Academy</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0d1117; color: #c9d1d9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; min-height: 100vh; }
 
   /* Header */
-  .header { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); border-bottom: 1px solid #21262d; padding: 32px 24px 28px; text-align: center; }
+  .header { background: linear-gradient(135deg, #161b22 0%, #0d1117 100%); border-bottom: 1px solid #21262d; padding: 36px 24px 32px; text-align: center; }
   .header-badge { display: inline-block; background: #238636; color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; letter-spacing: .8px; text-transform: uppercase; margin-bottom: 12px; }
   .header h1 { font-size: 28px; color: #f0f6fc; font-weight: 700; margin-bottom: 8px; }
-  .header p { font-size: 15px; color: #8b949e; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+  .header p { font-size: 15px; color: #8b949e; max-width: 640px; margin: 0 auto; line-height: 1.6; }
 
   /* Main */
-  .main { max-width: 960px; margin: 0 auto; padding: 40px 24px 60px; }
+  .main { max-width: 960px; margin: 0 auto; padding: 40px 24px 20px; }
 
   /* Section label */
   .section-label { font-size: 12px; color: #58a6ff; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 20px; }
@@ -34,9 +34,9 @@
 
   /* Mini topology illustration */
   .topo-art { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 40px; opacity: .85; }
-  .topo-router { width: 52px; height: 52px; border: 2px solid #30363d; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #58a6ff; background: #0d1117; position: relative; }
+  .topo-router { width: 52px; height: 52px; border: 2px solid #30363d; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #58a6ff; background: #0d1117; }
   .topo-link { display: flex; flex-direction: column; align-items: center; gap: 4px; }
-  .topo-link-line { width: 80px; height: 2px; background: #30363d; position: relative; }
+  .topo-link-line { width: 80px; height: 2px; background: #30363d; }
   .card:hover .topo-link-line { background: #58a6ff; }
   .topo-link-label { font-size: 9px; color: #484f58; letter-spacing: .5px; text-transform: uppercase; }
   .card:hover .topo-link-label { color: #58a6ff; }
@@ -54,6 +54,7 @@
   .tag-cisco { background: #d2992220; color: #d29922; }
   .tag-fips { background: #2ea04320; color: #2ea043; }
   .tag-steps { background: #21262d; color: #8b949e; }
+  .tag-wasm { background: #a371f720; color: #a371f7; }
   .card-title { font-size: 18px; font-weight: 700; color: #f0f6fc; margin-bottom: 8px; line-height: 1.3; }
   .card-desc { font-size: 13px; color: #8b949e; line-height: 1.6; flex: 1; margin-bottom: 16px; }
   .card-features { list-style: none; margin-bottom: 16px; }
@@ -63,13 +64,20 @@
   .card-cta::after { content: '\2192'; transition: transform .15s; }
   .card:hover .card-cta::after { transform: translateX(4px); }
 
+  /* Engine toggle section */
+  .engine-section { max-width: 960px; margin: 0 auto; padding: 12px 24px 40px; }
+  .engine-note { background: #161b22; border: 1px solid #30363d; border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 14px; }
+  .engine-note-icon { font-size: 22px; flex-shrink: 0; }
+  .engine-note-text { font-size: 13px; color: #8b949e; line-height: 1.5; }
+  .engine-note-text a { color: #a371f7; text-decoration: none; font-weight: 600; }
+  .engine-note-text a:hover { text-decoration: underline; }
+
   /* Footer */
   .footer { text-align: center; padding: 32px 24px; border-top: 1px solid #21262d; }
-  .footer p { font-size: 12px; color: #484f58; }
+  .footer p { font-size: 12px; color: #484f58; margin-bottom: 4px; }
   .footer a { color: #58a6ff; text-decoration: none; }
   .footer a:hover { text-decoration: underline; }
 
-  /* Responsive */
   @media (max-width: 500px) {
     .cards { grid-template-columns: 1fr; }
     .header h1 { font-size: 22px; }
@@ -81,7 +89,7 @@
 <body>
 
 <div class="header">
-  <div class="header-badge">IOE Academy</div>
+  <div class="header-badge">Cisco Networking Academy</div>
   <h1>Quantum-Safe VPN Tutorials</h1>
   <p>Hands-on labs for securing Cisco IOS XE site-to-site VPNs against quantum computing threats. Build, verify, and troubleshoot post-quantum IPSec tunnels in an interactive browser-based simulator.</p>
 </div>
@@ -156,8 +164,19 @@
   </div>
 </div>
 
+<div class="engine-section">
+  <div class="engine-note">
+    <div class="engine-note-icon">&#x26A1;</div>
+    <div class="engine-note-text">
+      <strong>WebAssembly Edition</strong> &mdash; Both tutorials are also available with a C++/WASM-powered IOS engine for faster command execution.
+      <a href="https://ioeacademy.github.io/cisco-pqc-vpn-wasm/">Try the WASM version</a>
+    </div>
+  </div>
+</div>
+
 <div class="footer">
-  <p>Built by <a href="https://github.com/ioeacademy">IOE Academy</a> &mdash; Open-source network engineering education</p>
+  <p>Created by G5 (Giuseppe Cinque) in collaboration with AI</p>
+  <p><a href="https://github.com/ioeacademy">GitHub</a></p>
 </div>
 
 </body>
